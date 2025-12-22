@@ -6,6 +6,6 @@ from {{ source('btc', 'btc') }}
 
 {% if is_incremental() %}
 
-where BLOCK_TIMETSAMP >= (select max(BLOCK_TIMETSAMP) from {{ this }})
+where BLOCK_TIMESTAMP >= (select max(BLOCK_TIMESTAMP) from {{ this }})
 
 {% endif %}
